@@ -1,8 +1,7 @@
 # 컴퓨터 비전을 이용한 프로젝트 정리
 - SRGAN code execution(8월3일)
 - source : (https://github.com/leftthomas/SRGAN), (https://velog.io/@hyun-wle/SRGAN-%EB%94%B0%EB%9D%BC%ED%95%98%EA%B8%B0)
-- 블로그에 너무 잘 정리해주셔서 도움이 많이 
-
+- [Object Detection 공부 참고 블로그]: https://2hyes.tistory.com/171
 
 #  SRGAN 
 - train.py 실행하여 100 epoch 학습
