@@ -113,3 +113,6 @@
 - 모델에서 언급한대로 'f'는 similar statistical properties를 공유한 task에 대해서만 범용적인 적용이 가능하다.
 - 해당 방법을 실제로 적용해본다면 주기성이 동일한 시계열끼리 묶고 각 군집마다 통용될 수 있는 'f'를 설계한 후 주기 길이만큼 K points로 매일 임시 모델을 업데이트하고 값을 계산하는 방식을 적용할 수 있지 않을까 싶다.
 
+- 코드를 돌려볼 예정이다.
+reference : https://chioni.github.io/posts/maml/#few-shot-learning
+Paper : https://paperswithcode.com/paper/model-agnostic-meta-learning-for-fast
