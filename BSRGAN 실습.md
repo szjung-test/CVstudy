@@ -32,3 +32,10 @@ defaults:
 ```
 szjung@esp:/workspace/newworld/Super-resolution/scripts$ CUDA_VISIBLE_DEVICES=1 python trainer.py 
 ```
+우선 학습 80000번 학습한 모델로 test 돌림
+
+```
+szjung@esp:/workspace/newworld/Super-resolution/scripts$ CUDA_VISIBLE_DEVICES=1 python tester.py 
+```
+
+
