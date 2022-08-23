@@ -172,3 +172,59 @@ class VisionTransformer(nn.Module):
         
         return x
 ```
+
+## 6. Model Output
+```python
+if __name__ == "__main__":
+  from torchsummary import summary
+  
+  custom_config = {
+    "img_size":384,
+    "in_chans":3,
+    "patch_size":16,
+    "embed_dim":768,
+    "depth":12,
+    "n_heads":12,
+    "qkv_bias":True,
+    "mlp_ratio": 4
+  }
+  model_custom = VisionTransformer(**custom_config_
+  
+  inp = torch.rand(2, 3, 384, 384)
+  res_c = model_custom(inp)
+  print(res_c.shape)
+  
+  summary(model_custom, input_size=(3, 384, 384), device='cpu')
+  print(model_custom)
+
+```
+
+## 7. Pretrained model inference
+```python
+import numpy as np
+from PIL import Image
+import torch.nn.fuctional
+import cv2
+
+k=10
+
+imagenet_labels = dict(enumerate(open("classes.txt")))
+
+model = torch.load("vit.path")
+model.eval()
+
+img = (np.array(Image.open("cat.jpg"))/128) - 1 # -1~1
+img = cv2.resize(img, (384, 384))
+inp = torch.from_numpy(img).permute(2, 0, 1).unsqueeze(0).to(torch.float32)
+logits = model(inp)
+probs = torch.nn.functional.softmax(logits, dim=1)
+
+top_probs, top_idxs = probs[0].topk(k)
+
+for i, (idx_, prob_) in enumerate(zip(top_idxs, top_probs)):
+  idx = idx_.item()
+  prob = prob_.item()
+  cls = imagenet_labels[idx].strip()
+  print(f"{i}: {cls:<45} --- {prob:.4f}")
+
+```
